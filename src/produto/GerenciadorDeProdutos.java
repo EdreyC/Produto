@@ -28,7 +28,6 @@ public class GerenciadorDeProdutos {
             atual = produtos.get(i);
             if (atual.getNome().equals(desc) && atual.getMarca().equals(marca)) {
                 System.out.println(atual);
-                System.out.println(produtos);
 
                 return atual;
             }
@@ -60,11 +59,14 @@ public class GerenciadorDeProdutos {
             produtos.get(index).setMarca(nMarca);
             produtos.get(index).setPreco(nPreco);
             System.out.println("Produto atualizado com sucesso");
+            System.out.println(att);
+            System.out.println(produtos);
             return "Produto atualizado com sucesso";
         }
     }
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Adicione 3 produtos");
@@ -94,13 +96,27 @@ public class GerenciadorDeProdutos {
         String marca = scanner.next();
         consultaProduto(nome, marca);
 
+        System.out.println("Atualize um produto");
+        System.out.println("Digite a descrição do produto que quer atualizar:");
+        nome = scanner.next();
+        System.out.println("Digite a marca do produto que quer atualizar:");
+        marca = scanner.next();
+        System.out.println("Digite o novo nome do produto que quer atualizar:");
+        String nNome = scanner.next();
+
+        System.out.println("Digite a nova marca do produto que quer atualizar:");
+        String nMarca = scanner.next();
+        System.out.println("Digite o novo preço do produto que quer atualizar:");
+        Double nPreco = scanner.nextDouble();
+
+        atualizaProduto(nome, marca, nNome, nMarca, nPreco);
+
         System.out.println("Delete um produto");
         System.out.println("Digite a descrição do produto:");
         nome = scanner.next();
         System.out.println("Digite a marca do produto:");
         marca = scanner.next();
         removeProduto(nome, marca);
-        // var consulaproduto = consultaProduto(descricao, marca);
 
     }
 
